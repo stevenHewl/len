@@ -2,6 +2,7 @@ package com.len.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -16,15 +17,15 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @date 2017/12/31.
  * @email 154040976@qq.com
  */
-@Configuration
-@EnableSwagger2
+@Configuration // 让Spring来加载该类配置
+@EnableSwagger2 // 启用Swagger2
 public class SwaggerConfig {
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.len.controller"))
+				.apis(RequestHandlerSelectors.basePackage("com.len.controller")) // Swagger会扫描该包下所有Controller定义的API，并产生文档内容（除了被@ApiIgnore指定的请求）。
                 .paths(PathSelectors.any())
                 .build();
     }

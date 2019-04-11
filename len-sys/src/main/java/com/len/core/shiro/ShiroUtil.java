@@ -1,11 +1,14 @@
 package com.len.core.shiro;
 
-import com.len.base.CurrentUser;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 
+import com.len.base.CurrentUser;
+
 /**
+ * 安全框架
+ * 
  * @author zhuxiaomeng
  * @date 2017/12/28.
  * @email 154040976@qq.com

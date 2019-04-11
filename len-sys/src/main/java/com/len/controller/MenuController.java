@@ -1,5 +1,15 @@
 package com.len.controller;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.alibaba.fastjson.JSONArray;
 import com.len.base.BaseController;
 import com.len.core.annotation.Log;
@@ -11,13 +21,8 @@ import com.len.service.MenuService;
 import com.len.service.RoleMenuService;
 import com.len.util.BeanUtil;
 import com.len.util.JsonUtil;
+
 import io.swagger.annotations.ApiOperation;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
 
 /**
  * @author zhuxiaomeng
@@ -25,7 +30,7 @@ import org.springframework.web.bind.annotation.*;
  * @email 154040976@qq.com
  * 菜单
  */
-@RequestMapping("/menu")
+@RequestMapping("/menu") // 通过这里配置使下面的映射都在/menu下，可去除
 @Controller
 public class MenuController extends BaseController {
 
